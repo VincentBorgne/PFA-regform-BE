@@ -8,7 +8,8 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:5175',
-      'https://pfareg.ydev.thescorehub.com'
+      'https://pfareg.ydev.thescorehub.com',
+      'https://pfareg.xdev.thescorehub.com'
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
@@ -22,7 +23,7 @@ async function bootstrap() {
     }),
   );
 
-  const port = process.env.PORT || 4300;
+  const port = process.env.PORT;
   await app.listen(port, '0.0.0.0');  // Add '0.0.0.0' here
   console.log(`Application is running on: http://localhost:${port}`);
 }
