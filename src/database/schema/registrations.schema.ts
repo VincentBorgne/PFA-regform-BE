@@ -1,4 +1,3 @@
- 
 import { pgTable, serial, varchar, text, timestamp, boolean, jsonb } from 'drizzle-orm/pg-core';
 
 export const registrations = pgTable('registrations', {
@@ -20,7 +19,7 @@ export const registrations = pgTable('registrations', {
   partnerName: varchar('partner_name', { length: 255 }),
   playerLevel: varchar('player_level', { length: 50 }).notNull(),
   partnerLevel: varchar('partner_level', { length: 50 }),
-  tennisSquashBackground: text('tennis_squash_background'),  // ADD THIS LINE
+  tennisSquashBackground: text('tennis_squash_background'),
   
   // Tournament Experience (stored as JSON)
   tournaments: jsonb('tournaments'),

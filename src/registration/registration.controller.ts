@@ -6,14 +6,21 @@ import { CreateRegistrationDto } from './dto/create-registration.dto';
 export class RegistrationController {
   constructor(private readonly registrationService: RegistrationService) {}
 
-  @Get()
-  test() {
-    return { message: 'Registration API is working' };
-  }
-
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createRegistrationDto: CreateRegistrationDto) {
     return this.registrationService.create(createRegistrationDto);
+  }
+
+  @Get('teams')
+  @HttpCode(HttpStatus.OK)
+  async getTeams() {
+    return this.registrationService.getTeamsReport();
+  }
+
+  @Get('stats')
+  @HttpCode(HttpStatus.OK)
+  async getStats() {
+    return this.registrationService.getRegistrationStats();
   }
 }
