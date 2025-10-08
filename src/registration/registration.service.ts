@@ -153,7 +153,7 @@ async getTeamsReport() {
 async getRegistrationStats() {
   const registrations = await this.db
     .select()
-    .from(schema.registrations);
+    .from(schema.registrations)
 	.where(eq(schema.registrations.termsAccepted, true));
 
   // Count players by nationality
