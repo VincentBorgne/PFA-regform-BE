@@ -75,6 +75,7 @@ async getTeamsReport() {
   const registrations = await this.db
     .select()
     .from(schema.registrations)
+	.where(eq(schema.registrations.termsAccepted, true))
     .orderBy(schema.registrations.createdAt);
 
   // Build teams by matching players
@@ -153,6 +154,7 @@ async getRegistrationStats() {
   const registrations = await this.db
     .select()
     .from(schema.registrations);
+	.where(eq(schema.registrations.termsAccepted, true));
 
   // Count players by nationality
   const countryStats = registrations.reduce((acc, reg) => {
